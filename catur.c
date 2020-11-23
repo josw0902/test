@@ -76,22 +76,52 @@ int getsteps(int x, int y,
             return dp[abs(x - tx)][abs(y - ty)]; 
         } 
     } 
+}
+
+int convert(char c){
+    if(c=='A'){
+        c = 1;
+    }
+    if(c=='B'){
+        c = 2;
+    }
+    if(c=='C'){
+    	c = 3;
+    }
+    if(c=='D'){
+    	c = 4;
+    }
+    if(c=='E'){
+    	c = 5;
+    }
+    if(c=='F'){
+    	c = 6;
+    }
+    if(c=='G'){
+    	c = 7;
+    }
+    if(c=='H'){
+    	c = 8;
+    }
 } 
   
 // Driver Code 
 int main() 
-{ 
-    int i, n, x, y, tx, ty, ans; 
-      
+{  
     // size of chess board n*n 
-    n = 8; 
+    int n = 8; 
       
     // (x, y) coordinate of the knight. 
     // (tx, ty) coordinate of the target position.
 	int t;
-	scanf("%d", &t);
+	scanf("%d\n", &t);
 	for(int i = 0; i < t; i++){
-    	scanf("%d %d %d %d", &x, &y, &tx, &ty); 
+		int ans;
+		int y, ty;
+		char cx, ctx;
+    	scanf("%c%d %c%d", &cx, &y, &ctx, &ty);
+		int x = convert(cx);
+    	int tx = convert(ctx); 
     // (Exception) these are the four corner points  
     // for which the minimum steps is 4. 
     	if ((x == 1 && y == 1 && tx == 2 && ty == 2) ||  (x == 2 && y == 2 && tx == 1 && ty == 1)) 
